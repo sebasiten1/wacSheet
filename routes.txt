@@ -1,0 +1,84 @@
+Routes de l'API
+
+### USERS ###
+
+// Se connecter et récupérer un JWT
+POST    -> /api/users/auth/signin
+
+// Créer un user
+POST    -> /api/users/auth/signup
+
+// Récupérer tous les users
+GET     -> /api/users/all
+
+// Récupérer un user par son ID
+GET     -> /api/users/:userId
+
+// Modifier un user par son ID
+PUT     -> /api/users/:userId
+
+// Supprimer un user par son ID
+DELETE  -> /api/users/:userId
+
+
+
+### GAMES ###
+
+// Créer une game
+POST    -> /api/games/create
+
+// Récupérer tous les games
+GET     -> /api/games/all
+
+// Récupérer une game par son ID
+GET     -> /api/games/:gameId
+
+// Modifier une game par son ID
+PUT     -> /api/games/:gameId
+
+// Supprimer une game par son ID
+DELETE  -> /api/games/:gameId
+
+// Récupérer tous les joueurs d'une game
+GET     -> /api/games/:gameId/players/all
+
+// Récupérer l'id du game master
+GET     -> /api/games/:gameId/players/master
+
+// Ajouter un joueur
+POST    -> /api/games/:gameId/players/add
+
+// Supprimer un joueur
+DELETE  -> /api/games/:gameId/players/remove
+
+// Return true si joueur existe dans la game
+GET     -> /api/games/:gameId/players/exist
+
+
+
+### EQUIPEMENTS ###
+
+// Créer un equipment
+POST    -> /api/equipments/create
+
+// Récupérer tous les equipments
+GET     -> /api/equipments/all
+
+// Récupérer un equipment par son ID
+GET     -> /api/equipments/:equipmentId
+
+// Modifier un equipment par son ID
+PUT  	-> /api/equipments/:equipmentId
+
+// Supprimer un equipment par son ID
+DELETE  -> /api/equipments/:equipmentId
+
+
+
+### PLAYER EQUIPEMENTS ###
+
+// Récupérer l'equipement d'un joueur par l'ID de la game
+GET     -> /api/equipments/game/:gameId
+
+// Supprimer l'equipment d'un joueur l'ID de l'equipement
+DELETE  -> /api/equipments/game/:equipmentId

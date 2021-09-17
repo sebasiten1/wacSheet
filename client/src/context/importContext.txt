@@ -1,0 +1,51 @@
+pour utiliser dataContext pour lier l'api avec le front :
+    - import { DataContext } from "../src/context/dataContext" (le chemain est variable selon ou l'on ce trouve !);
+    - import React, {useContext} from 'react';
+
+dans la fonction principale :
+
+    - const {urlPostUserConnect, urlPostUsers, urlPutUserId, urlDeleteUserId,  urlPostGame,
+        urlPutGameId, urlDeleteGameId, urlPostPlayersInGame, urlDeletePlayersInGame,  urlPostItems,
+        urlPutItems, urlDeleteItems, urlDeleteItemsPlayersInGame, apiDataUser, apiDataUserId, apiDataGame,
+        apiDataGameId, apiDataPlayerInGame, apiDataMasterPlayer, checkPlayerInGame, apiDataItems,
+        apiDataItemsId, apiItemsPlayerInGame} = useContext(DataContext);
+    
+pour un axios post: 
+
+(fonction a appeler dans le handleChange du boutton)
+par example pour la creation d'un user
+const postAccount = async ()=> {
+    console.log("postAccount");
+   axios({
+    method: 'post',
+    url: 'urlPostUser',
+    data: state
+    })
+    .then(function (reponse) {
+        //On traite la suite une fois la réponse obtenue 
+        console.log(reponse);
+    })
+    .catch(function (erreur) {
+        //On traite ici les erreurs éventuellement survenues
+        console.log(erreur);
+    });
+}
+
+pour un axios put : 
+
+(fonction a appeler dans le handleChange du boutton)
+
+ const putIdentityApi = async ()=>{
+    console.log("putIdentity")
+     await axios.put(urlPutUser, state);
+  };
+
+pour un axios delete :
+
+(fonction a appeler dans le handleChange du boutton)
+
+const deleteItems = async ()=>{
+    await axios.delete(`${urlDeleteItems}/${idItems}`,{
+   headers:{"Authorization": `Bearer ${this.token}`}
+}
+
